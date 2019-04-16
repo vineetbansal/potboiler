@@ -10,4 +10,7 @@ before_install:
 - docker ps -a
 
 script:
-- docker run -it --rm potboiler pytest 
+  - docker run -it --rm potboiler pytest --cov=potboiler
+
+after_success:
+  - coveralls
