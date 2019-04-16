@@ -1,0 +1,14 @@
+name: potboiler
+
+channels:
+  - defaults
+  - conda-forge
+
+dependencies:
+  - Flask=1.0
+  - Flask-Caching=1.4.0
+  - importlib_resources=1.0.2
+  - Jinja2=2.10.1
+  - MarkupSafe=1.0
+  - pytest=3.5.0
+  - python=3.6
