@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/vineetbansal/potboiler.svg?branch=master)](https://travis-ci.org/vineetbansal/potboiler)
+
 # potboiler
 Minimal Flask+Docker Boilerplate
 
