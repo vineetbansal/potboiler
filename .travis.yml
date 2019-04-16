@@ -10,7 +10,5 @@ before_install:
 - docker ps -a
 
 script:
-  - docker run -it --rm -e TRAVIS_JOB_ID="$TRAVIS_JOB_ID" -e TRAVIS_BRANCH="$TRAVIS_BRANCH" potboiler pytest --cov=potboiler
+  - docker run -it --rm -e TRAVIS_JOB_ID="$TRAVIS_JOB_ID" -e TRAVIS_BRANCH="$TRAVIS_BRANCH" potboiler "pytest --cov=potboiler; coveralls"
 
-after_success:
-  - coveralls
