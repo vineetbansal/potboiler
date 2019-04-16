@@ -1,5 +1,5 @@
 from unittest import TestCase
-import chimera
+import potboiler
 
 class MyTestCase(TestCase):
     def setUp(self):
@@ -12,5 +12,5 @@ class MyTestCase(TestCase):
         self.assertEqual(42, 42)
 
     def testMeToo(self):
-        self.assertEqual("Hello World", chimera.hello())
+        self.assertEqual("Hello World", potboiler.hello())
 
