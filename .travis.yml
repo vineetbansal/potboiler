@@ -6,14 +6,13 @@ services:
   - docker
 
 before_install:
-- docker build -t potboiler .
+- docker build -t potboiler_img .
 - docker ps -a
 
 script:
-  - echo "debug1"
-  - echo ${COVERALLS_REPO_TOKEN}
-  - echo "debug2"
-  - echo ${TRAVIS_BUILD_DIR}
-  - echo "debug3"
-  - docker run -it --rm -e TRAVIS_JOB_ID="$TRAVIS_JOB_ID" -e TRAVIS_BRANCH="$TRAVIS_BRANCH" potboiler "pytest --cov=potboiler; coveralls"
+  - docker run -it -d --rm --name potboiler_container potboiler_img /bin/bash
+  - docker exec -it potboiler_container pytest --cov=potboiler
+  - docker cp potboiler_container:/app/.coverage .
 
+after_success:
+  - coveralls
