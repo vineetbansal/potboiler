@@ -16,6 +16,8 @@ script:
   - docker run -it -d --rm --name potboiler_container potboiler_img /bin/bash
   - docker exec -it potboiler_container pytest --cov=potboiler
   - docker cp potboiler_container:/app/.coverage .
+  - docker stop potboiler_container
 
 after_success:
+  - coverage combine --append
   - coveralls
