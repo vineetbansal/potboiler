@@ -5,6 +5,9 @@ python:
 services:
   - docker
 
+install:
+  - pip install coveralls
+  
 before_install:
 - docker build -t potboiler_img .
 - docker ps -a
