@@ -10,5 +10,10 @@ before_install:
 - docker ps -a
 
 script:
+  - echo "debug1"
+  - echo ${COVERALLS_REPO_TOKEN}
+  - echo "debug2"
+  - echo ${TRAVIS_BUILD_DIR}
+  - echo "debug3"
   - docker run -it --rm -e TRAVIS_JOB_ID="$TRAVIS_JOB_ID" -e TRAVIS_BRANCH="$TRAVIS_BRANCH" potboiler "pytest --cov=potboiler; coveralls"
 
